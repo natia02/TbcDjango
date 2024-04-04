@@ -12,9 +12,6 @@ __pycache__/
 # Django migration files
 **/migrations/
 
-# Local SQLite database file
-db.sqlite3
-
 # Secret keys
 *.secret_key
 
