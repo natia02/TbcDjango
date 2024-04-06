@@ -9,6 +9,8 @@ __pycache__/
 # Logs
 *.log
 
+# Django migration files
+**/migrations/
 
 # Secret keys
 *.secret_key
