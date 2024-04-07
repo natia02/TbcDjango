@@ -29,30 +29,20 @@ designed such that a superuser can add books to the database and search for book
     ```bash
     pip install -r requirements.txt
     ```
-   
-5. Make migration for the 'market' app
-   ```bash
-   python manage.py makemigrations market
-   ```
 
-6. Run database migrations: 
-    ```bash
-    python manage.py migrate market
-    ```
-
-7. Create a superuser: 
+5. Create a superuser: 
     ```bash
     python manage.py createsuperuser
     ```
    and follow instructions
 
-8. Start the development server: 
+6. Start the development server: 
     ```bash
     python manage.py runserver
     ``` 
 The application should now be accessible at `http://127.0.0.1:8000/`
 
-from the page `http://127.0.0.1.8000/admin` you can log in as a superuser.
+from the page `http://127.0.0.1.8000/admin` you can log in as a superuser and add new books or delete existing ones.
 
 ## Additional Information
 
