@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>List of Books</h2>
+    <ul>
+        {% for book in book  %}
+            <li><a href="/books/{{ book.id }}">{{ book.title }}</a></li>
+        {% endfor %}
+    </ul>
+
+    {% if book.has_previous %}
+        <a href="?page={{ book.previous_page_number }}" class="text-blue-500 hover:text-blue-700">Previous</a>
+    {% endif %}
+    <span class="current text-gray-600">Page {{ book.number }} of {{ book.paginator.num_pages }}.</span>
+    {% if book.has_next %}
+        <a href="?page={{ book.next_page_number }}" class="text-blue-500 mr-2 hover:text-blue-700">Next</a>
+    {% endif %}
+
+
+
+</body>
+</html>
