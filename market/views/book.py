@@ -1,31 +1,16 @@
 from django.http import JsonResponse
-from django.shortcuts import render
-
 from market.models.book import Book
 
 
 def get_books(request):
-    books = Book.objects.all()
-    books_list = []
-    for book in books:
-        books_list.append({
-            'title': book.title,
-            'author_name': book.author_name,
-            'price': book.price,
-            'pages': book.page_count,
-            'category': book.category
-        })
-
+    books = Book.objects.values_list('title', 'author_name', 'price', 'page_count', 'category')
+    books_list = list(books)
     return JsonResponse(books_list, safe=False)
 
 
 def get_book(request, book_id):
-    book = Book.objects.get(pk=book_id)
-    books_list = {
-        'title': book.title,
-        'author_name': book.author_name,
-        'price': book.price,
-        'pages': book.page_count,
-        'category': book.category
-    }
-    return JsonResponse(books_list, safe=False)
+    book = Book.objects.filter(pk=book_id).values_list('title', 'author_name', 'price', 'page_count', 'category')
+    if book:
+        return JsonResponse(book[0], safe=False)
+    else:
+        return JsonResponse({'error': 'Book not found'}, status=404)
