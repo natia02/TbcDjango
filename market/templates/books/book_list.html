@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Books</title>
 </head>
 <body>
     <h2>List of Books</h2>
@@ -13,11 +13,11 @@
     </ul>
 
     {% if book.has_previous %}
-        <a href="?page={{ book.previous_page_number }}" class="text-blue-500 hover:text-blue-700">Previous</a>
+        <a href="?page={{ book.previous_page_number }}">Previous</a>
     {% endif %}
-    <span class="current text-gray-600">Page {{ book.number }} of {{ book.paginator.num_pages }}.</span>
+    <span>Page {{ book.number }} of {{ book.paginator.num_pages }}.</span>
     {% if book.has_next %}
-        <a href="?page={{ book.next_page_number }}" class="text-blue-500 mr-2 hover:text-blue-700">Next</a>
+        <a href="?page={{ book.next_page_number }}">Next</a>
     {% endif %}
 
 
