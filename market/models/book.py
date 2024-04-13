@@ -8,7 +8,7 @@ class Book(models.Model):
     category = models.CharField(max_length=100, verbose_name=_("Category"))
     author_name = models.CharField(max_length=100, verbose_name=_("Author Name"))
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name=_("Price"))
-    image = models.ImageField(upload_to='media', verbose_name=_("Image"))
+    image = models.ImageField(upload_to='books', verbose_name=_("Image"))
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Created At"))
     updated_at = models.DateTimeField(auto_now=True, verbose_name=_("Updated At"))
 

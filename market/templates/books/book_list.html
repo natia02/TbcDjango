@@ -3,24 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Books</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/book_list.css' %}">
 </head>
 <body>
-    <h2>List of Books</h2>
+    <h1>List of Books</h1>
     <ul>
         {% for book in book  %}
-            <li><a href="/books/{{ book.id }}">{{ book.title }}</a></li>
+            <div class="book-card">
+                <img src="{{ MEDIA_URL }}{{ book.image.url }}" alt="image">
+                <li>{{ book.title }}</li>
+                <a class="see-more" href="/books/{{ book.id }}">See More</a>
+            </div>
+
         {% endfor %}
     </ul>
 
-    {% if book.has_previous %}
-        <a href="?page={{ book.previous_page_number }}">Previous</a>
-    {% endif %}
-    <span>Page {{ book.number }} of {{ book.paginator.num_pages }}.</span>
-    {% if book.has_next %}
-        <a href="?page={{ book.next_page_number }}">Next</a>
-    {% endif %}
+    <div class="paginator-container">
+        {% if book.has_previous %}
+            <a class="paginator" href="?page={{ book.previous_page_number }}">Previous</a>
+        {% endif %}
+        <span class="paginator-text">Page {{ book.number }} of {{ book.paginator.num_pages }}.</span>
+        {% if book.has_next %}
+            <a class="paginator" href="?page={{ book.next_page_number }}">Next</a>
+        {% endif %}
 
-
+    </div>
 
 </body>
 </html>

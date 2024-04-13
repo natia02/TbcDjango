@@ -1,0 +1,28 @@
+body{
+    background-color: rgb(220, 220, 220);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+img{
+    width: 600px;
+    height: 400px;
+}
+
+
+.book-detail{
+    margin-top: 50px;
+}
+
+h1{
+    color: #e41a13;
+}
+
+h2{
+    color: darkblue;
+}
+
+.description{
+    font-size: 23px;
+}
