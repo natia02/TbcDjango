@@ -9,9 +9,10 @@ def get_books(request):
     paginator = Paginator(books, 3)
     page = request.GET.get('page')
     page_obj = paginator.get_page(page)
-    return render(request, 'books/book_list.html', {'book': page_obj})
+    return render(request, 'book/book_list.html', {'book': page_obj})
 
 
 def get_book(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
-    return render(request, 'books/book_detail.html', {'book': book})
+    categories = book.category.all()
+    return render(request, 'book/book_detail.html', {'book': book, 'categories': categories})

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Books</title>
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/book_list.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/book/book_list.css' %}">
 </head>
 <body>
     <h1>List of Books</h1>
@@ -13,7 +13,7 @@
             <div class="book-card">
                 <img src="{{ MEDIA_URL }}{{ book.image.url }}" alt="image">
                 <li>{{ book.title }}</li>
-                <a class="see-more" href="/books/{{ book.id }}">See More</a>
+                <a class="see-more" href="/book/{{ book.id }}">See More</a>
             </div>
 
         {% endfor %}
@@ -27,7 +27,6 @@
         {% if book.has_next %}
             <a class="paginator" href="?page={{ book.next_page_number }}">Next</a>
         {% endif %}
-
     </div>
 
 </body>

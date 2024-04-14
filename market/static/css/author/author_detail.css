@@ -1,0 +1,26 @@
+body{
+    background-color: rgb(220, 220, 220);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+h2{
+    color: #e41a13;
+}
+
+li{
+    font-size: 17px;
+    margin-top: 30px;
+}
+
+a{
+    all:unset;
+    cursor: pointer;
+    color: blue;
+}

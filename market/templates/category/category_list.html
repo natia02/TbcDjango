@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Categories</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/author/author_list.css' %}">
+</head>
+<body>
+    <h1>List of categories</h1>
+    <ul>
+        {% for category in categories  %}
+            <li><a href="/category/{{ category.id }}">{{ category }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <div class="paginator-container">
+        {% if categories.has_previous %}
+            <a class="paginator" href="?page={{ categories.previous_page_number }}">Previous</a>
+        {% endif %}
+        <span class="paginator-text">Page {{ categories.number }} of {{ categories.paginator.num_pages }}.</span>
+        {% if categories.has_next %}
+            <a class="paginator" href="?page={{ categories.next_page_number }}">Next</a>
+        {% endif %}
+
+    </div>
+
+</body>
+</html>

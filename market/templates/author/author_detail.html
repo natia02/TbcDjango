@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ author.first_name }} {{ author.last_name }} - Author Detail</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/author/author_detail.css' %}">
+</head>
+<body>
+    <h2>{{ author.first_name }} {{ author.last_name }} </h2>
+    <h2>Data of Birth {{ author.birth_date }}</h2>
+
+    <h3>Books by {{ author.first_name }} in our database:</h3>
+    {% if not books %}
+        <p>There are no books by {{ author.first_name }} in the database.</p>
+    {% endif %}
+    <ul>
+        {% for book in books %}
+            <li><a href="/book/{{ book.id }}">{{ book.title }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
