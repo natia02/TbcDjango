@@ -1,9 +1,6 @@
 # TBC Django
 
-This is a Django project with one app, 'market', that includes a module called Book with its attributes and 
-corresponding views. I've organized views and models into separate folders for better structure. The project is 
-designed such that a superuser can add books to the database and search for books by their name and author.
-
+This is a Django project with one app, 'market', that includes modules for books, authors, and categories. I've organized views and models into separate folders for better structure.
 
 ## Prerequisites
 
@@ -40,22 +37,28 @@ designed such that a superuser can add books to the database and search for book
     ```bash
     python manage.py runserver
     ``` 
-The application should now be accessible at `http://127.0.0.1:8000/` this is main page 
+The application should now be accessible at `http://127.0.0.1:8000/` this is the main page 
 
-from the page `http://127.0.0.1.8000/admin` you can log in as a superuser and add new books or delete existing ones.
+From the page `http://127.0.0.1.8000/admin` you can log in as a superuser and add new books, authors, or categories, or delete existing ones.
 
 ## Additional Information
 
-- Implemented a `Book` model with its corresponding fields.
-- Added views for the `Book` model.
+- Implemented models for `Book`, `Author`, and `Category` with their corresponding fields.
+- Added views for the `Book`, `Author`, and `Category` models.
 - Added views to `urls.py`.
-- Implemented three views:
-  - **index:** This view renders the `index.html` template, which is the main page of the application. It contains a link that directs the user to the book list page.
-  - **get_books:** This view handles the book list page. It uses the Django Paginator to display 3 books per page. The user can navigate through the pages using the "Previous" and "Next" links. The `book_list.html` template is used to render the book list.
-  - **get_book:** This view handles the book detail page. It retrieves the details of a specific book by its ID and renders the `book_detail.html` template with the book information.
-- The `book_detail.html` template displays the title, author, category, price, and page count of the book.
-- The `book_list.html` template displays a list of books, with each book title linked to its detail page.
-- The `index.html` template is the main page of the application, which contains a link to the book list page.
+- Implemented views for:
+  - **Books:**
+    - **book_list:** This view renders the book list page, displaying a paginated list of books.
+    - **book_detail:** This view handles the book detail page, showing detailed information about a specific book.
+  - **Authors:**
+    - **author_list:** This view renders the author list page, displaying a paginated list of authors.
+    - **author_detail:** This view handles the author detail page, showing detailed information about a specific author.
+  - **Categories:**
+    - **category_list:** This view renders the category list page, displaying a paginated list of categories.
+    - **category_detail:** This view handles the category detail page, showing detailed information about a specific category.
+
+- The templates and static files for authors and categories have been added in the respective folders.
+- Updated admin panel to register models for authors and categories.
 
 ## Usage
 
@@ -64,13 +67,26 @@ Start the development server:
 ```bash
 python manage.py runserver
 ```
-Access the main page at http://127.0.0.1:8000/. You will see a link to the book list page.
+Access the main page at http://127.0.0.1:8000/. You will see links to the book list, author list, and category list pages.
 
-Click the link to go to the book list page (http://127.0.0.1:8000/books/). You will see a list of books, with 3 books displayed per page. Use the "Previous" and "Next" links to navigate through the pages.
+Click the links to go to the respective list pages:
 
-Click on a book title to go to the book detail page (http://127.0.0.1:8000/books/<book_id>). You will see the detailed information about the selected book.
+*   Book list page: http://127.0.0.1:8000/book/
+   
+*   Author list page: http://127.0.0.1:8000/author/
+   
+*   Category list page: http://127.0.0.1:8000/category/
+   
 
-Log in to the admin panel (http://127.0.0.1:8000/admin) using the superuser credentials you created earlier. You can now add, edit, or delete books from the database.
+On each list page, you will see paginated lists of items. Use the "Previous" and "Next" links to navigate through the pages.
 
+Click on an item to go to its detail page:
 
+*   Book detail page: http://127.0.0.1:8000/book/<book_id>/
+   
+*   Author detail page: http://127.0.0.1:8000/author/<author_id>/
+   
+*   Category detail page: http://127.0.0.1:8000/category/<category_id>/
+   
 
+Log in to the admin panel (http://127.0.0.1:8000/admin) using the superuser credentials you created earlier. You can now add, edit, or delete books, authors, or categories from the database.
