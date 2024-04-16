@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <title>Books</title>
     {% load static %}
-    <script src="{% static 'js/back_button.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/book/book_list.css' %}">
 </head>
 <body>
-    <button type="button" onclick="back()">Back</button>
+    <button type="button" onclick="location.href='http://127.0.0.1:8000/'">Main Page</button>
     <h1>List of Books</h1>
     <ul>
         {% for book in book  %}

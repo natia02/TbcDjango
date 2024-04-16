@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <title>Book - {{ book.title }}</title>
     {% load static %}
-    <script src="{% static 'js/back_button.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/book/book_detail.css' %}">
 </head>
 <body>
-    <button type="button" onclick="back()">Back</button>
+    <button type="button" onclick="location.href='http://127.0.0.1:8000/'">Main Page</button>
     <div class="book-detail">
         <img src="{{ MEDIA_URL }}{{ book.image.url }}" alt="image">
         <h1>{{ book.title }}</h1>
