@@ -33,3 +33,16 @@ a{
 .paginator{
     color: blue;
 }
+
+button{
+    background-color: green;
+    cursor: pointer;
+    color: white;
+    margin-top: 30px;
+    margin-left: -1750px;
+    width: 80px;
+    height: 40px;
+    border-radius: 15px;
+    font-size: 17px;
+    border: 1px solid gray;
+}

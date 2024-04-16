@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <title>{{ category.name }} - Category Detail</title>
     {% load static %}
+    <script src="{% static 'js/back_button.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/author/author_detail.css' %}">
 </head>
 <body>
+    <button type="button" onclick="back()">Back</button>
     <h2>{{ category.name }}</h2>
 
     <h3>Books with category {{ category.name }} in our database:</h3>
